@@ -10,6 +10,13 @@ public class ConfigurationDemoConfig {
 
     @Bean
     public SampleClass sampleClass() {
+
         return new SampleClass();
+    }
+
+    @Bean
+    public NewClass newClass() {
+
+        return new NewClass();
     }
 }

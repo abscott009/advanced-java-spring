@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ToString
-public class DesktopComputer {
+public class LaptopComputer {
 
     @Autowired
-    @Qualifier("vidmax")
+    @Qualifier("gfx")
     private VideoCard videoCard;
 }

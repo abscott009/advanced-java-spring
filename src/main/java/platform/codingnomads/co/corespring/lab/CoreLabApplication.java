@@ -11,7 +11,7 @@ public class CoreLabApplication {
     public static void main(String[] args) {
 
         ApplicationContext ctx = new AnnotationConfigApplicationContext(
-                whiskeyConfig.class);
+                CoreLabConfig.class);
 
         Bourbon bourbon = ctx.getBean(Bourbon.class);
 

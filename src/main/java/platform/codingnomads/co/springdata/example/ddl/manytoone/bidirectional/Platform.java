@@ -1,10 +1,12 @@
-package platform.codingnomads.co.springdata.example.ddl.manytoone.unidirectional.usingonetomany;
+package platform.codingnomads.co.springdata.example.ddl.manytoone.bidirectional;
 
-import lombok.*;
-
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
+
 
 @Entity
 @Getter
@@ -12,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 
 public class Platform {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,7 +24,7 @@ public class Platform {
     @Column(nullable = false)
     private Date date;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "site_id")
-    private List<Post> posts;
+    @OneToMany(mappedBy = "platform")
+    private Set<Post> posts;
 }
+

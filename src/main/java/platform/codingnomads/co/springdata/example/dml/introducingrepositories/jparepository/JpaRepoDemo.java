@@ -23,21 +23,27 @@ public class JpaRepoDemo implements CommandLineRunner {
         SoftDrink fanta = SoftDrink.builder().name("Fanta").rating(10).build();
         SoftDrink coke = SoftDrink.builder().name("Coca-Cola").rating(4).build();
         SoftDrink drPepper = SoftDrink.builder().name("Dr. Pepper").rating(1).build();
+        SoftDrink mrPib = SoftDrink.builder().name("Mr. Pip").rating(7).build();
+        SoftDrink sprite = SoftDrink.builder().name("Sprite").rating(6).build();
+        SoftDrink mugRootBear = SoftDrink.builder().name("Mug").rating(9).build();
 
         //save single entity instance
         fanta = softDrinkRepo.save(fanta);
+        sprite = softDrinkRepo.save(sprite);
 
         //save multiple entity instances at a time
-        List<SoftDrink> insertedSoftDrinks = softDrinkRepo.saveAll(List.of(coke, drPepper));
+        List<SoftDrink> insertedSoftDrinks = softDrinkRepo.saveAll(List.of(coke, drPepper, mugRootBear));
 
         //make sure all entities are actually saved to the database
         softDrinkRepo.flush();
 
         //update coke and drPepper to have rating 0 in the database
         for (SoftDrink sd : insertedSoftDrinks) {
-            sd.setRating(0);
-            softDrinkRepo.save(sd);
+           sd.setRating(0);
+           softDrinkRepo.save(sd);
         }
+
+        mrPib.setName("Mr. Pib");
 
         System.out.println("ALL SOFT DRINKS IN DESCENDING ORDER BASED ON ID");
         //get all soft drinks in ascending order and print toString() to the console

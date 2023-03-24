@@ -1,29 +1,32 @@
 package platform.codingnomads.co.springdata.example.ddl.joincolumn;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "ranking")
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Ranking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "ranking")
+    private String rank;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
 
     @JoinColumns({
             @JoinColumn(name = "references_id", referencedColumnName = "id"),
-            @JoinColumn(name = "ranking", referencedColumnName = "ranking"),
+            @JoinColumn(name = "title", referencedColumnName = "title"),
 
     })
-    private Ranking ranking;
+    private Game game;
+
 }

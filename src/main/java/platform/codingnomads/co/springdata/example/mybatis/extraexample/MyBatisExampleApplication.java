@@ -21,6 +21,7 @@ public class MyBatisExampleApplication implements CommandLineRunner {
         * update the "spring.datasource.url" property in your application.properties file to
           jdbc:mysql://localhost:3306/mybatis?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
 
+
      */
 
     @Autowired

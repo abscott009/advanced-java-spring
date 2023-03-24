@@ -23,10 +23,10 @@ public class CrudRepoDemo implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         //create new user
-        User user = User.builder().firstName("Bobby").lastName("Bobbert").age(56).build();
-        User user2 = User.builder().firstName("Joanne").lastName("Joanna").age(36).build();
-        User user3 = User.builder().firstName("Davey").lastName("Jones").age(100).build();
-        User user4 = User.builder().firstName("Phil").lastName("McCracken").age(27).build();
+        User user = User.builder().firstName("Bobby").lastName("Bobbert").age(56).weight(210).height(72).bloodType("A-").build();
+        User user2 = User.builder().firstName("Joanne").lastName("Joanna").age(36).weight(135).height(59).bloodType("O-").build();
+        User user3 = User.builder().firstName("Davey").lastName("Jones").age(100).weight(187).height(63).bloodType("AB+").build();
+        User user4 = User.builder().firstName("Phil").lastName("McCracken").age(27).weight(225).height(78).bloodType("B+").build();
 
 
         //save user and assign what is returned to the user variable.
@@ -35,6 +35,7 @@ public class CrudRepoDemo implements CommandLineRunner {
         user3 = userRepo.save(user3);
         user4 = userRepo.save(user4);
 
+
         Iterable<User> users = userRepo.findAll();
 
         for(User u : users){
@@ -42,9 +43,9 @@ public class CrudRepoDemo implements CommandLineRunner {
         }
 
         //delete the user using the id of the inserted user object
-        userRepo.deleteById(user.getId());
-        userRepo.deleteById(user2.getId());
-        userRepo.deleteById(user3.getId());
-        userRepo.deleteById(user4.getId());
+//        userRepo.deleteById(user.getId());
+//        userRepo.deleteById(user2.getId());
+//        userRepo.deleteById(user3.getId());
+//        userRepo.deleteById(user4.getId());
     }
 }

@@ -25,5 +25,14 @@ public class User {
     @Column(nullable = false)
     private Integer age;
 
+    @Column(nullable = false)
+    private Integer weight;
+
+    @Column(nullable = false)
+    private Integer height;
+
+    @Column(nullable = false)
+    private String bloodType;
+
 
 }

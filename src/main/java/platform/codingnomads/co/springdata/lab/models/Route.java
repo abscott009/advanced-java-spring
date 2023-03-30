@@ -1,9 +1,13 @@
 package platform.codingnomads.co.springdata.lab.models;
 
 import lombok.*;
+import platform.codingnomads.co.springdata.lab_complete.models.PointOfInterest;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -39,4 +43,22 @@ public class Route implements Serializable {
             foreignKey = @ForeignKey(name = "fk_routes_destination_area_id")
     )
     private Area destination;
+    @ManyToMany(mappedBy = "routes")
+    private List<Landmark> landmarks;
+
+    @Builder
+    public Route(Area origin, Area destination){
+        this.origin = origin;
+        this.destination = destination;
+        this.code = (origin.getCode() + " to " + destination.getCode());
+    }
+
+    public void addLandmark(Landmark landmark) {
+        if (this.landmarks == null) {
+            this.landmarks = new ArrayList<>(Collections.singletonList(landmark));
+        } else {
+            this.landmarks.add(landmark);
+        }
+    }
+
 }

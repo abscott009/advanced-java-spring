@@ -1,9 +1,13 @@
 package platform.codingnomads.co.springdata.lab.models;
 
 import lombok.*;
+import platform.codingnomads.co.springdata.lab_complete.models.PointOfInterest;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -23,4 +27,15 @@ public class Area implements Serializable {
 
     @Column(unique = true)
     private String code;
+
+    @OneToMany(mappedBy = "area")
+    private List<Landmark> landmarks;
+
+    public void addLandmark(Landmark landmark) {
+        if (this.landmarks == null) {
+            this.landmarks = new ArrayList<>(Collections.singletonList(landmark));
+        } else {
+            this.landmarks.add(landmark);
+        }
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+import platform.codingnomads.co.springweb.resttemplate.GET.models.ExcuseTemplate;
 import platform.codingnomads.co.springweb.resttemplate.GET.models.QuoteTemplate;
 
 import java.util.Arrays;
@@ -17,6 +18,7 @@ public class GetForObjectDemo {
     @Autowired
     RestTemplate restTemplate;
 
+
     public static void main(String[] args) {
         SpringApplication.run(GetForObjectDemo.class, args);
     }
@@ -25,9 +27,13 @@ public class GetForObjectDemo {
     public CommandLineRunner run() throws Exception {
         return args -> {
 
-            QuoteTemplate[] randomQuote;
-            randomQuote = restTemplate.getForObject("https://zenquotes.io/api/random/", QuoteTemplate[].class);
-            System.out.println(Arrays.toString(randomQuote));
+//            QuoteTemplate[] randomQuote;
+//            randomQuote = restTemplate.getForObject("https://zenquotes.io/api/random/", QuoteTemplate[].class);
+//            System.out.println(Arrays.toString(randomQuote));
+
+            ExcuseTemplate[] randomExcuse;
+            randomExcuse = restTemplate.getForObject("https://excuser-three.vercel.app/v1/excuse", ExcuseTemplate[].class);
+            System.out.println(Arrays.toString(randomExcuse));
 
             // submit more requests here
             

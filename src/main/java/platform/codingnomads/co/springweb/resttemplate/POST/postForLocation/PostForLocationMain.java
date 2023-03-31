@@ -27,10 +27,10 @@ public class PostForLocationMain {
     public CommandLineRunner run() throws Exception {
         return args -> {
             Task newTask = Task.builder()
-                    .name("learn how to use postForLocation()")
-                    .description("get comfortable using the RestTemplate postForLocation() method")
+                    .name("Old dogs new tricks")
+                    .description("Never to late to start")
                     //be sure to use a valid user id
-                    .userId(380)
+                    .userId(382)
                     .completed(false)
                     .build();
 

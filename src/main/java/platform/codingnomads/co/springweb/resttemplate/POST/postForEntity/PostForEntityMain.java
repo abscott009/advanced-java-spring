@@ -27,10 +27,10 @@ public class PostForEntityMain {
     public CommandLineRunner run() throws Exception {
         return args -> {
             Task newTask = Task.builder()
-                    .name("learn how to use postForEntity()")
-                    .description("get comfortable using the RestTemplate postForEntity() method")
+                    .name("Dog tricks 101")
+                    .description("")
                     //be sure to use valid user id
-                    .userId(380)
+                    .userId(382)
                     .completed(false)
                     .build();
 

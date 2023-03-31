@@ -24,10 +24,10 @@ public class PostForObjectMain {
     public CommandLineRunner run() throws Exception {
         return args -> {
             Task newTask = Task.builder()
-                    .name("learn how to use postForObject() - video demo")
-                    .description("get comfortable using the RestTemplate postForObject() method")
+                    .name("Change your own oil")
+                    .description("get comfortable changing the oil in your car")
                     //use a valid user id
-                    .userId(380)
+                    .userId(382)
                     .completed(false)
                     .build();
 

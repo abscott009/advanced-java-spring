@@ -22,6 +22,7 @@ public class Authority implements GrantedAuthority {
     private RoleEnum authority;
 
     public String getAuthority() {
+
         return authority.name();
     }
 }

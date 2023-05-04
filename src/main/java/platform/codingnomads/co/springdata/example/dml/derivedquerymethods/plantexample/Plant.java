@@ -1,6 +1,7 @@
 package platform.codingnomads.co.springdata.example.dml.derivedquerymethods.plantexample;
 
 import lombok.*;
+import platform.codingnomads.co.springdata.example.dml.usingqueryannotation.models.SoilType;
 
 import javax.persistence.*;
 import java.util.Objects;

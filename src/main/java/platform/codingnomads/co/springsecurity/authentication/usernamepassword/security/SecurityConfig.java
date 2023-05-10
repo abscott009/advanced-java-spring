@@ -66,7 +66,8 @@ public class SecurityConfig {
 //        users.setUsersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username = ?");
 //        return users;
 //    }
-//
+
+//  Useful for prototyping
 //    @Bean
 //    public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
 //        Authority userAuth = Authority.builder().authority(RoleEnum.ROLE_USER).build();

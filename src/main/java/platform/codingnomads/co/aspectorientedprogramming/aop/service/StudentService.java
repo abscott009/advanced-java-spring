@@ -15,14 +15,18 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
 
-//    @TrackMethodExecutionTime
-//    @Loggable
+    @TrackMethodExecutionTime
+    @Loggable
     public List<Student> fetchAllStudents() {
         return studentRepository.findAll();
     }
 
-//    @TrackMethodExecutionTime
-//    @Loggable
+    public Student saveStudent(Student student) {
+        return studentRepository.save(student);
+    }
+
+    @TrackMethodExecutionTime
+    @Loggable
     public List<Student> saveAllStudents(List<Student> students) {
         return studentRepository.saveAll(students);
     }

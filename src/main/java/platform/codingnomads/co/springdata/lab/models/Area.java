@@ -38,4 +38,13 @@ public class Area implements Serializable {
             this.landmarks.add(landmark);
         }
     }
+
+    @Override
+    public String toString(){
+        return "Area{" +
+                "id: " + id +
+                "code: " + code + '\'' +
+                "landmark: " + landmarks +
+                '}';
+    }
 }

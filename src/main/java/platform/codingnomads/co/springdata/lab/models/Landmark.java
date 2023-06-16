@@ -40,7 +40,6 @@ public class Landmark implements Serializable {
         this.name = name;
         this.area = area;
         area.addLandmark(this);
-
     }
 
     public Landmark(String type, String name, Route route) {

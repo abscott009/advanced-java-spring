@@ -69,8 +69,7 @@ public class SpringDataLab implements CommandLineRunner {
 
         if (pointOfInterestRepository.findAll().size() == 0) {
 
-            PointOfInterest poi1 = new PointOfInterest("Gas Station", "Buc-ee's",
-                    areaRepository.findByCode("A"));
+            PointOfInterest poi1 = new PointOfInterest("Gas Station", "Buc-ee's", areaRepository.findByCode("A"));
             // if a poi has an associated area, it may have routes as well
             poi1.addRoutes(routeRepository.findAllByCodeContaining("A"));
 

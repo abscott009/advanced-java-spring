@@ -11,6 +11,7 @@ import platform.codingnomads.co.springdata.lab.models.Route;
 import platform.codingnomads.co.springdata.lab.repositories.AreaRepository;
 import platform.codingnomads.co.springdata.lab.repositories.LandmarkRepository;
 import platform.codingnomads.co.springdata.lab.repositories.RouteRepository;
+import platform.codingnomads.co.springdata.lab_complete.models.PointOfInterest;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -79,25 +80,42 @@ public class SpringDataLab implements CommandLineRunner {
                             .destination((areaRepository.findByCode("D"))).build()
             );
 
-Landmark myLandmark = Landmark.builder().build();
-List<Landmark> landmarkList = new ArrayList<>();
-landmarkList.add(myLandmark);
+//Landmark myLandmark = Landmark.builder().build();
+//List<Landmark> landmarkList = new ArrayList<>();
+//landmarkList.add(myLandmark);
 
             if (landmarkRepository.findAll().size() == 0) {
 
-                final List<Landmark> landmarks = landmarkRepository.saveAll(landmarkList);
-                Arrays.asList(
-                        Route.builder().origin(areaRepository.findByCode("A")).destination((areaRepository.findByCode("Z"))).build(),
-                        Route.builder().origin(areaRepository.findByCode("B")).destination((areaRepository.findByCode("Y"))).build(),
-                        Route.builder().origin(areaRepository.findByCode("C")).destination((areaRepository.findByCode("H"))).build(),
-                        Route.builder().origin(areaRepository.findByCode("D")).destination((areaRepository.findByCode("G"))).build(),
-                        Route.builder().origin(areaRepository.findByCode("G")).destination((areaRepository.findByCode("B"))).build(),
-                        Route.builder().origin(areaRepository.findByCode("H")).destination((areaRepository.findByCode("A"))).build(),
-                        Route.builder().origin(areaRepository.findByCode("Y")).destination((areaRepository.findByCode("A"))).build(),
-                        Route.builder().origin(areaRepository.findByCode("Z")).destination((areaRepository.findByCode("D"))).build()
-                );
+                Landmark lm1 = new Landmark("municipal", "post office", areaRepository.findByCode("D"));
+                Landmark lm2 = new Landmark("monument", " Liberty Bell", areaRepository.findByCode("A"));
+                Landmark lm3 = new Landmark("commercial", "1st Bank", areaRepository.findByCode("Z"));
+                Landmark lm4 = new Landmark("residential", "Home", areaRepository.findByCode("X"));
+                Landmark lm5 = new Landmark("athletic field", "baseball park", areaRepository.findByCode("B"));
+                Landmark lm6 = new Landmark("restaurant", "McDonalds", areaRepository.findByCode("Y"));
+                Landmark lm7 = new Landmark("golf course", "Par Country Club", areaRepository.findByCode("W"));
 
+                final List<Landmark> lmList = landmarkRepository.saveAll(
+                        List.of(lm1, lm2, lm3, lm4, lm5, lm6, lm7)
+                );
+            }
         }
 
+        System.out.println(routeRepository.findByOriginCode("A"));
+        System.out.println(routeRepository.findByOriginCode("B"));
+        System.out.println(routeRepository.findByOriginCode("C"));
+
+        System.out.println(routeRepository.findByDestinationCode("X"));
+        System.out.println(routeRepository.findByDestinationCode("Y"));
+        System.out.println(routeRepository.findByDestinationCode("Z"));
+
+
+        System.out.println(routeRepository.findByCode("A - Z"));
+        System.out.println(routeRepository.findByCode("B - Y"));
+        System.out.println(routeRepository.findByCode("C - X"));
+
+        System.out.println(landmarkRepository.findAllByArea_code("A"));
+        System.out.println(landmarkRepository.findAllByArea_code("W"));
+
+        System.out.println(landmarkRepository.findAllByRoute_codeContaing("Y"));
     }
 }
